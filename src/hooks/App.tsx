@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { initialTodos } from "./initialTodos";
-import { TodoList } from "./TodoList";
-import { AddTodoForm } from "./AddTodoForm";
+import { initialTodos } from "./State/initialTodos";
+import { TodoList } from "./Component/List";
+import { AddTodoForm } from "./Component/Add";
+
 
 const App: React.FC = () => {
   const [todos, setTodos] = useState<Array<Todo>>(initialTodos);

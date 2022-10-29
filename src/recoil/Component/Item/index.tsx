@@ -1,5 +1,5 @@
 import React from "react";
-import "./TodoListItem.css";
+import "./index.css";
 
 interface TodoListItemProps {
   todo: Todo;
@@ -10,6 +10,7 @@ export const TodoListItem: React.FC<TodoListItemProps> = ({
   todo,
   toggleComplete
 }) => {
+  console.log("-----TodoListItem----:rerender");
   return (
     <li>
       <label className={todo.complete ? "complete" : undefined}>
