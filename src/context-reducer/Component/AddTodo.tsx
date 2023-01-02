@@ -1,4 +1,4 @@
-import React, { useState, ChangeEvent, FormEvent } from "react";
+import React, { ChangeEvent, FormEvent, useEffect, useState } from "react";
 import { useStore } from "../Store";
 
 
@@ -14,6 +14,11 @@ export const AddTodoForm: React.FC<any> = ({ addTodo }) => {
     dispatch({ data: { text: newTodo, complete:false},type:'ADD'})
    
   };
+  useEffect(() => {
+
+    debugger;
+    console.log(333)
+  })
 
   return (
     <form>
