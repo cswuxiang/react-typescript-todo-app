@@ -6,6 +6,7 @@ import { useStore } from "./State";
 
 
 const App: React.FC = () => {
+  debugger;
   const toDoList = useStore((state: any) => state.todos);
   const addTodo = useStore((state: any) => state.addTodo);
   const toggleComplete = useStore((state: any) => state.toggleComplete);
