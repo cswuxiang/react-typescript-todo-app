@@ -1,31 +1,18 @@
-import React, { useState } from "react";
-
-import { TodoList } from "./Component/List";
+import React from "react";
 import { AddTodoForm } from "./Component/Add";
-import { useStore } from "zustand";
+import { TodoList } from "./Component/List";
+import { useStore } from "./State";
+
 
 
 const App: React.FC = () => {
-  // const getVotes = useStore((state: any) => state.data);
-
-  const toggleComplete: ToggleComplete = selectedTodo => {
-    // const updatedTodos = todos.map(todo => {
-    //   if (todo === selectedTodo) {
-    //     return { ...todo, complete: !todo.complete };
-    //   }
-    //   return todo;
-    // });
-    // setTodos(updatedTodos);
-  };
-
-  const addTodo: AddTodo = newTodo => {
-    // newTodo.trim() !== "" &&
-    //   setTodos([...todos, { text: newTodo, complete: false }]);
-  };
+  const toDoList = useStore((state: any) => state.todos);
+  const addTodo = useStore((state: any) => state.addTodo);
+  const toggleComplete = useStore((state: any) => state.toggleComplete);
 
   return (
     <React.Fragment>
-      {/* <TodoList todos={todos} toggleComplete={toggleComplete} /> */}
+      <TodoList todos={toDoList} toggleComplete={toggleComplete} />
       <AddTodoForm addTodo={addTodo} />
     </React.Fragment>
   );

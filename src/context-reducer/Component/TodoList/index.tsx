@@ -9,19 +9,14 @@ interface TodoListProps {
 }
 
 export const TodoList: React.FC<any> = (props) => {
-
   const [todoList, dispatch] = useStore();
-  debugger;
-
-
   return (
     <ul>
       {todoList.map((todo: { text: any; complete?: boolean; }) => (
         <TodoListItem
           key={todo.text}
           todo={todo}
-          toggleComplete={()=>{
-            debugger;
+          toggleComplete={() => {
             dispatch({ data: todo, type:'TOGGLE'})
           }}
         />
