@@ -1,16 +1,44 @@
-import { action, observable } from 'mobx';
+import { autorun, computed, observable } from 'mobx';
 
-class Store {
-  @observable
-  count = 1;
+class TodoStore {
+  @observable todos = [
+    {
+      task: 'Get up',
+      completed: false
+    },
+    {
+      task: 'Go to work',
+      completed: false
+    },
+    {
+      task: 'Take lunch',
+      completed: false
+    },
+    {
+      task: 'Take a walk',
+      completed: false
+    }
+  ];
 
-  @action
-  setCount = () => {
-    this.count++;
+  constructor() {
+    autorun(() => console.log(this.report));
+  }
+
+  @computed get completedCount() {
+    return this.todos.filter(todo => todo.completed).length;
+  }
+
+  @computed get report() {
+    return `Progress: ${this.completedCount}/${this.todos.length}`;
+  }
+
+  add(task: any) {
+    debugger;
+    this.todos.push({
+      task,
+      completed: false
+    });
   }
 }
-export const store = new Store();
 
-
-
-
+export default TodoStore;
